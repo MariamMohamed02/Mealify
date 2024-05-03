@@ -1,0 +1,474 @@
+/* -----------------------------GLOBAL--------------------- */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+
+a{
+    text-decoration: none;
+    color: inherit; /*take color of parent*/
+}
+
+li{
+    list-style: none;
+}
+
+.container{
+    width: 85%;
+    margin: auto;
+}
+
+.section{
+    /* for the padding between each section */
+    padding-block: 30px;
+}
+
+.title{
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.title h2{
+    font-weight: 400;
+    font-size:14px;
+    color: #7f7f90;
+}
+.title p, .title span{
+    font-family: "Amatic SC", sans-serif;
+    font-size: 50px;
+}
+.title span{
+    color: #ce1212;
+}
+
+/* ----------------------------------END GLOBAL------------------------- */
+
+/* -----------------------------------Navbar-------------------------- --*/
+
+nav{
+    background-color: #ffffff;
+    /* shadow under navbar */
+    box-shadow: 0px 0px 15px 0px #0000001b;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+}
+nav .container{
+    /* to make what's inside the container float beside each other  */
+    display: flex;
+    justify-content: space-between; /*centre and fill space between them */
+    padding-block: 25px;
+}
+
+/* laptop first */
+nav .icon .bars{
+    /* display: none; -> desktop */
+    display:inline ;
+}
+
+nav ul {
+    /* links beside each other */
+    /* display: flex;  -> desktop*/ 
+    display: none; /*mobile first */
+    align-items: center;
+    gap: 20px;
+    color: #7f7f90;
+    font-weight: 600px;
+}
+
+/* underlining the links -> use after for the line */
+nav ul a{
+    position: relative;
+    transition: 0.3s;
+}
+
+nav ul a::after{
+    content: "";
+    position: absolute;
+    /* width = 0 to be invisible when NOT hovered over */
+    width: 0;
+    height: 2px;
+    background-color: #ce1212 ;
+    /* under each word (parent) */
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+
+/* when hover on 'a' -> change the after */
+nav ul a:hover::after{
+    width: 100%;
+}
+nav ul a:hover{
+    color: black;
+}
+
+/* dot after logo -> using after */
+nav h1 a::after{
+    content: ".";
+    color: #ce1212;
+    font-size: 30px;
+}
+
+nav .icon i{
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* -----------------------------------HOME-------------------------- --*/
+
+#home{
+    /* to move container itself */
+    
+    display: flex;
+    align-items: center;
+    /* height: 100vh; -> desktop*/
+    min-height: 100vh;
+
+    background-color: #eeeeee;
+    padding-top: 70px;
+}
+
+#home .container{
+    /* to move what's inside container */
+    padding-top: 70px;
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: column-reverse;  /*mobile view: under each other */
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+/* everything inside the container */
+#home .container >*{
+    /* width: 40%; -> desktop */
+    width: 100%;
+    text-align: center;
+}
+
+#home .container img{
+    width: 100%;
+}
+
+#home .container h2{
+    font-family: "Amatic SC", sans-serif;
+    font-size: 65px;
+}
+#home .container p{
+    margin-block: 20px;
+    color: #4f4f5a;
+}
+
+#home .container .buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;  /*centre for mobile view*/
+    gap: 20px;
+}
+#home .container .buttons .btn1{
+    background-color: #ce1212;
+    padding: 10px 25px;
+    color: white;
+    /* border-radius: 0 20px 20px ;  for desktop */
+    border-radius: 20px;
+    transition: 0.3s;
+}
+#home .container .buttons .btn1:hover{
+    background-color: #e92222 ;
+}
+
+#home .container .buttons .btn2{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: 0.3s;
+
+}
+#home .container .buttons .btn2 .btn-icon{
+    width: 40px;
+    height: 40px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center; /*centre horizontally */
+    align-items: center; /*centre vertically*/
+
+    position: relative;
+}
+
+#home .container .buttons .btn2 .btn-icon::before{
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 8px solid;
+    border-radius: 50%;
+    border-color:  #ce1212 transparent transparent #ce1212 ;
+    rotate: -45deg;
+
+}
+
+#home .container .buttons .btn2:hover{
+    color: #ce1212;
+}
+
+#home .container  .home-img img{
+    /* box-shadow: 4px 4px 9px #000a00; */
+    filter: drop-shadow(4px 4px 9px #000a00);
+    margin-top: 50px;
+
+}
+
+#home .container  .home-img:hover{
+    animation: shake 0.5s infinite;
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+    
+}
+
+/* -----------------------------------END HOME-------------------------- --*/
+/* -----------------------------------CHEF SECTION-------------------------- --*/
+.chef-images{
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.chef-images img{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.chef-images .chef-item{
+    /* width: calc((100% / 3) - 30px ); for desktop */
+    width: 100%;
+
+    background-color: #ffffff;
+    box-shadow: 0 0 20px 0 #0000001b;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+
+.chef-images .chef-item .chef-content{
+    text-align: center;
+    padding: 20px;
+
+}
+
+
+.chef-images .chef-item .chef-icons{
+    position: absolute;
+    top: 40px;
+    right: -110%;
+    background-color: #ffffff4d;
+    padding: 20px;
+    border-radius: 10px;
+    transition: all 0.3s;
+}
+
+
+.chef-images .chef-item .chef-icons i{
+    color: #37373766;
+    margin-bottom: 10px;
+}  
+
+.chef-images .chef-item:hover{
+    scale: 1.1;
+}
+
+.chef-images .chef-item:hover .chef-icons{
+    /* delay in the before and after hovering */
+    transition: all 0.3s 0.3s;
+    right: 20px;
+}
+
+/* .chef-images .chef-item .chef-img{
+    position: relative;
+}
+
+.chef-images .chef-item .chef-img::before{
+    content: "";
+     position: absolute;
+     background-image: url(../images/wave.jpg);
+     width: 100%;
+     height: 60px;
+     bottom: -1px;
+} */
+
+/* -----------------------------------END CHEFS-------------------------- --*/
+/* -----------------------------------GALLERY SECTION-------------------------- --*/
+
+#gallery{
+    background-color: #eeeeee;
+}
+
+#gallery .gallery-images{
+    display: flex;
+    flex-direction: column;
+    /* height: 1400px; for desktop */
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+#gallery .gallery-images >*{
+    /* width: calc((100%/3) - 20px); for desktop */
+    width: 100%;
+}
+
+#gallery .gallery-images img{
+    width: 100%;
+}
+
+.gal-img{
+    /* for the layer being unhovered */
+    position: relative;  
+    overflow: hidden;
+}
+.gal-img .img-content-layer{
+    position: absolute;
+    /* take its parent's size */
+    width: 100%;
+    height: 100%;
+    /* on top of its parent */
+    top:110%;   /*initially, without hovering, the layer is below its parent and we make it hidden */  
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    /* centre horizontally and vertically */
+    text-align: center;  /*Horizontally centred*/
+    /* vertically centred. NB-> div added inside this div */
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.gal-img:hover .img-content-layer{
+    top: 0;
+}
+
+/* -----------------------------------END GALLERY-------------------------- --*/
+/* -----------------------------------CONTACT US SECTION-------------------------- --*/
+
+#contact .btn{
+    background-color: #ce1212;
+    padding: 10px 25px;
+    color: white;
+    /* border-radius: 0 20px 20px ;  for desktop */
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+#contact .btn:hover{
+    background-color: #e92222 ;
+}
+
+#contact iframe{
+    width: 100%;
+    height: 300px;
+}
+
+#contact .contact-method{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; 
+    margin-block: 20px;
+}
+
+#contact .contact-method > div{
+    width: calc(calc(100% - 10px)/2);
+   background-color: #eeeeee;
+    padding: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+#contact .contact-method .contact-icon{
+    width: 50px;
+    height: 50px;
+    background-color: #ce1212;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    color: #ffffff; 
+
+    flex-shrink: 0;
+    align-items: center;
+}
+
+#contact .contact-method h3{
+    color: #7d7d7d;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+#contact .contact-method h3 + *{
+    font-size: 17px;
+}
+
+#contact form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    box-shadow: 0 0 30px #00000014;
+    padding: 20px;
+}
+
+#contact form > *:not(button){
+    width: 100%;
+}
+
+#contact .grp{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#contact .grp input{
+    width: calc(calc(100% - 10px)/2);
+}
+
+
+#contact input, #contact textarea{
+    padding: 15px;
+    font-family: inherit;
+    border: 2px solid #7f7f90;
+
+}
+
+#contact input:focus, #contact textarea:focus{
+    outline: none;
+    border-color: #ce1212;
+}
+
+#contact textarea{
+    resize: vertical;
+    max-height: 350px;
+    min-height: 150px;
+}
+
+/* -----------------------------------END CONTACT US-------------------------- --*/

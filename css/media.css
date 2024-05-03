@@ -1,0 +1,91 @@
+/* sm , md , lg , xl , xxl */
+/* 640 768 1024 1280 1536 */
+
+
+
+/* for large screen */
+@media screen and (min-width:1024px){
+    .chef-images .chef-item{
+        width: calc((100%/2) - 20px );
+    }
+    #gallery .gallery-images{
+        height: 1800px;
+    }
+
+    #gallery .gallery-images >*{
+        width: calc((100%/2) - 20px );
+    }
+    
+}
+
+/* for extra large; desktop */
+
+@media screen and (min-width:1280px){
+    nav ul{
+        display: flex;
+    }
+
+    nav .icon .bars{
+        display: none;
+    }
+
+    #home .container{
+        flex-direction: row;
+        text-align: left;
+    }
+
+    #home .container >*{
+        width: 40%;
+
+    }
+
+    #home .buttons{
+        justify-content: start;
+    }
+
+    #home .container .buttons .btn1{
+        border-radius: 0px 20px 20px;
+    }
+
+    .chef-images .chef-item{
+        width: calc((100% / 3) - 30px )
+    }
+
+    #gallery .gallery-images{
+        height: 1400px;
+    }
+
+    #gallery .gallery-images >*{
+        width: calc((100%/3) - 20px);
+       
+    }
+}
+
+@media screen and (min-width:1125px)and (max-width:1279px) {
+
+    #gallery .gallery-images{
+        height: 1000px;
+    }
+
+    #gallery .gallery-images >*{
+        width: calc((100%/3) - 20px);
+       
+    }
+}
+
+
+@media screen and (max-width:992px) {
+    #contact .grp input{
+        width: 100%;
+    }
+
+
+}
+
+@media screen and (max-width:768px) {
+    #contact .contact-method > div{
+        width: 100%;  
+    }
+
+}
+
